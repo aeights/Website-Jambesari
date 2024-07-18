@@ -278,6 +278,10 @@
     transition: .5s;
 }
 
+.course-item {
+    padding-bottom: 8px;
+}
+
 .category a:hover img,
 .course-item:hover img {
     transform: scale(1.1);
