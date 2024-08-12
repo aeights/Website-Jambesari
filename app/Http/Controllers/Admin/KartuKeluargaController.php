@@ -27,7 +27,7 @@ class KartuKeluargaController extends Controller
     public function edit($id)
     {
         try {
-            $data = DB::select('SELECT * FROM kartu_keluarga WHERE id = ?',[$id]);
+            $data = DB::select('SELECT * FROM kartu_keluarga WHERE nomor = ?',[$id]);
             return view('admin.kartu-keluarga.edit',[
                 'data' => $data[0]
             ]);
@@ -39,13 +39,13 @@ class KartuKeluargaController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'id' => 'required|numeric|min:16',
+            'nomor' => 'required|numeric|min:16|unique:kartu_keluarga,nomor',
             'kepala_keluarga' => 'required|numeric|min:16'
         ]);
 
         try {
             if ($validated) {
-                if ($validated['id'] == $validated['kepala_keluarga']) {
+                if ($validated['nomor'] == $validated['kepala_keluarga']) {
                     return back()->with('error', 'Nomor Kartu Keluarga dan kepala keluarga tidak boleh sama!');
                 }
                 DB::beginTransaction();
@@ -62,17 +62,17 @@ class KartuKeluargaController extends Controller
     public function update(Request $request)
     {
         $validated = $request->validate([
-            'id' => 'required|numeric|min:16',
-            'kepala_keluarga' => 'required|numeric|min:16'
+            'nomor' => 'required|numeric|min:16|unique:kartu_keluarga,nomor,'.$request->old_nomor.',nomor',
+            'kepala_keluarga' => 'required|numeric|min:16|unique:kartu_keluarga,kepala_keluarga,'.$request->old_nomor.',nomor'
         ]);
 
         try {
             if ($validated) {
-                if ($validated['id'] == $validated['kepala_keluarga']) {
+                if ($validated['nomor'] == $validated['kepala_keluarga']) {
                     return back()->with('error', 'Nomor Kartu Keluarga dan kepala keluarga tidak boleh sama!');
                 }
                 DB::beginTransaction();
-                KartuKeluarga::find($request->old_id)->update($validated);
+                KartuKeluarga::find($request->old_nomor)->update($validated);
                 DB::commit();
                 return to_route('kartu-keluarga')->with('success', 'Kartu Keluarga berhasil di perbarui!');
             }
@@ -86,7 +86,7 @@ class KartuKeluargaController extends Controller
     {
         try {
             DB::beginTransaction();
-            $kartuKeluarga = KartuKeluarga::findOrFail($request->id);
+            $kartuKeluarga = KartuKeluarga::findOrFail($request->nomor);
             $kartuKeluarga->delete();
             DB::commit();
             return to_route('kartu-keluarga')->with('success', 'Kartu Keluarga berhasil di di hapus!');

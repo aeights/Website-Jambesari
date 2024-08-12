@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('hub_kepala_keluarga', function (Blueprint $table) {
             $table->id();
+            $table->string('deskripsi');
             $table->timestamps();
         });
     }

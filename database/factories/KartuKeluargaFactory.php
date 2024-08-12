@@ -18,7 +18,7 @@ class KartuKeluargaFactory extends Factory
     public function definition(): array
     {
         return [
-            'id' => $this->generateRandomNumber(16),
+            'nomor' => $this->generateRandomNumber(16),
             'kepala_keluarga' => $this->generateRandomNumber(16),
         ];
     }

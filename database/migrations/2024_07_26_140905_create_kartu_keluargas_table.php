@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('kartu_keluarga', function (Blueprint $table) {
-            $table->string('id')->primary()->unique();
+            $table->string('nomor')->primary()->unique();
             $table->string('kepala_keluarga')->unique();
             $table->timestamps();
         });

@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('status_perkawinan', function (Blueprint $table) {
             $table->id();
+            $table->string('deskripsi');
             $table->timestamps();
         });
     }

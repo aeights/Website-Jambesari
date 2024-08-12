@@ -5,10 +5,10 @@
             <div class="card-body">
                 <form action="{{ route('kartu-keluarga.update') }}" method="POST">
                     @csrf
-                    <input type="hidden" name="old_id" value="{{ (string)$data->id }}">
+                    <input type="hidden" name="old_nomor" value="{{ $data->nomor }}">
                     <h5 class="mb-4">Edit Kartu Keluarga</h5>
                     <div class="form-floating mb-3">
-                        <input name="id" type="text" value="{{ (string)$data->id }}" class="form-control" id="floatingInput" placeholder="Nomor KK"
+                        <input name="nomor" type="text" value="{{ $data->nomor }}" class="form-control" id="floatingInput" placeholder="Nomor KK"
                             aria-describedby="floatingInputHelp" />
                         <label for="floatingInput">Nomor Kartu Keluarga</label>
                         <div id="floatingInputHelp" class="form-text">

@@ -8,4 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class Paspor extends Model
 {
     use HasFactory;
+
+    protected $table = 'paspor';
+
+    protected $guarded = [
+        'id',
+    ];
 }

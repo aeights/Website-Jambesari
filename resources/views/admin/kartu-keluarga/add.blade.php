@@ -7,7 +7,7 @@
                     @csrf
                     <h5 class="mb-4">Tambah Kartu Keluarga</h5>
                     <div class="form-floating mb-3">
-                        <input name="id" type="text" class="form-control" id="floatingInput" placeholder="Nomor KK"
+                        <input name="nomor" type="text" class="form-control" id="floatingInput" placeholder="Nomor KK"
                             aria-describedby="floatingInputHelp" />
                         <label for="floatingInput">Nomor Kartu Keluarga</label>
                         <div id="floatingInputHelp" class="form-text">

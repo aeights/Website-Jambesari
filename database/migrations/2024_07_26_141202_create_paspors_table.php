@@ -12,7 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('paspor', function (Blueprint $table) {
-            $table->id();
+            $table->string('id')->primary()->unique();
+            $table->date('tanggal_berakhir');
             $table->timestamps();
         });
     }

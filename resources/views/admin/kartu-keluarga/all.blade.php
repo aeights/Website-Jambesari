@@ -19,11 +19,11 @@
                     @foreach ($data as $no => $item)
                     <tr>
                         <td class="text-start">{{ $no+1 }}</td>
-                        <td class="text-start">{{ $item->id }}</td>
+                        <td class="text-start">{{ $item->nomor }}</td>
                         <td class="text-start">{{ $item->kepala_keluarga }}</td>
                         <td class="text-start">
-                            <a href="{{ route('kartu-keluarga.edit',['id' => $item->id]) }}" class="btn btn-success">Edit</a>
-                            <button id="buttonDeleteKK" data-id="{{ $item->id }}" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalDeleteKK">Hapus</button>
+                            <a href="{{ route('kartu-keluarga.edit',['id' => $item->nomor]) }}" class="btn btn-success">Edit</a>
+                            <button id="buttonDeleteKK" data-id="{{ $item->nomor }}" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalDeleteKK">Hapus</button>
                         </td>
                     </tr>
                     @endforeach
@@ -85,7 +85,7 @@
                     url: '{{ route('kartu-keluarga.delete') }}',
                     type: 'POST',
                     data: {
-                        id: id,
+                        nomor: id,
                         _token: '{{ csrf_token() }}' // Pastikan Anda mengirim token CSRF untuk keamanan
                     },
                     success: function(result) {
