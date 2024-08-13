@@ -25,10 +25,10 @@
     <link rel="stylesheet" href="{{ asset('template/admin/assets/vendor/fonts/boxicons.css') }}" />
 
     <!-- Core CSS -->
-    <link rel="stylesheet"
-        href="{{ asset('template/admin/assets/vendor/css/core.css') }}" class="template-customizer-core-css" />
-    <link rel="stylesheet"
-        href="{{ asset('template/admin/assets/vendor/css/theme-default.css') }}" class="template-customizer-theme-css" />
+    <link rel="stylesheet" href="{{ asset('template/admin/assets/vendor/css/core.css') }}"
+        class="template-customizer-core-css" />
+    <link rel="stylesheet" href="{{ asset('template/admin/assets/vendor/css/theme-default.css') }}"
+        class="template-customizer-theme-css" />
     <link rel="stylesheet" href="{{ asset('template/admin/assets/css/demo.css') }}" />
 
     <!-- Vendors CSS -->
@@ -38,6 +38,7 @@
     <link rel="stylesheet" href="{{ asset('template/admin/assets/vendor/libs/apex-charts/apex-charts.css') }}" />
 
     <!-- Page CSS -->
+    <link href="{{ asset('dist/css/select2.min.css') }}" rel="stylesheet" />
 
     <!-- Helpers -->
     <script src="{{ asset('template/admin/assets/vendor/js/helpers.js') }}"></script>
@@ -134,7 +135,7 @@
                         </a>
                         <ul class="menu-sub">
                             <li class="menu-item">
-                                <a href="{{ route('dashboard') }}" class="menu-link">
+                                <a href="{{ route('penduduk') }}" class="menu-link">
                                     <div>Penduduk</div>
                                 </a>
                             </li>
@@ -244,14 +245,6 @@
                         <!-- /Search -->
 
                         <ul class="navbar-nav flex-row align-items-center ms-auto">
-                            <!-- Place this tag where you want the button to render. -->
-                            <li class="nav-item lh-1 me-3">
-                                <a class="github-button"
-                                    href="https://github.com/themeselection/sneat-html-admin-template-free"
-                                    data-icon="octicon-star" data-size="large" data-show-count="true"
-                                    aria-label="Star themeselection/sneat-html-admin-template-free on GitHub">Star</a>
-                            </li>
-
                             <!-- User -->
                             <li class="nav-item navbar-dropdown dropdown-user dropdown">
                                 <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);"
@@ -267,8 +260,8 @@
                                             <div class="d-flex">
                                                 <div class="flex-shrink-0 me-3">
                                                     <div class="avatar avatar-online">
-                                                        <img src="{{ asset('template/admin/assets/img/avatars/1.png') }}" alt
-                                                            class="w-px-40 h-auto rounded-circle" />
+                                                        <img src="{{ asset('template/admin/assets/img/avatars/1.png') }}"
+                                                            alt class="w-px-40 h-auto rounded-circle" />
                                                     </div>
                                                 </div>
                                                 <div class="flex-grow-1">
@@ -325,50 +318,64 @@
                 <div class="content-wrapper">
                     <!-- Content -->
                     <div class="container-xxl flex-grow-1 container-p-y">
-                        @if (Session::has('success'))
-                            <div
-                                class="bs-toast toast fade show bg-primary"
-                                role="alert"
-                                aria-live="assertive"
-                                aria-atomic="true"
-                            >
-                                <div class="toast-header">
-                                    <i class="bx bx-bell me-2"></i>
-                                    <div class="me-auto fw-semibold">Notifikasi</div>
-                                    <small>Baru</small>
-                                    <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                        <div class="d-flex justify-content-end">
+                            @if (Session::has('success'))
+                                <div class="bs-toast toast fade show bg-primary mb-3 position-absolute top-0 mt-3"
+                                    role="alert" aria-live="assertive" aria-atomic="true">
+                                    <div class="toast-header">
+                                        <i class="bx bx-bell me-2"></i>
+                                        <div class="me-auto fw-semibold">Notifikasi</div>
+                                        <small>Baru</small>
+                                        <button type="button" class="btn-close" data-bs-dismiss="toast"
+                                            aria-label="Close"></button>
+                                    </div>
+                                    <div class="toast-body">
+                                        {{-- {{ session('success') }} --}}
+                                        @if (is_array(session('success')))
+                                            <ul>
+                                                @foreach (session('success') as $field => $messages)
+                                                    @foreach ($messages as $message)
+                                                    <li>
+                                                        {{ $message }}
+                                                    </li>
+                                                    @endforeach
+                                                @endforeach
+                                            </ul>
+                                        @else
+                                            {{ session('success') }}
+                                        @endif
+                                    </div>
                                 </div>
-                                <div class="toast-body">
-                                    {{ session('success') }}
+                            @endif
+                            @if (Session::has('error'))
+                                <div class="bs-toast toast fade show bg-danger mb-3 position-absolute top-0 mt-3"
+                                    role="alert" aria-live="assertive" aria-atomic="true">
+                                    <div class="toast-header">
+                                        <i class="bx bx-bell me-2"></i>
+                                        <div class="me-auto fw-semibold">Notifikasi</div>
+                                        <small>Baru</small>
+                                        <button type="button" class="btn-close" data-bs-dismiss="toast"
+                                            aria-label="Close"></button>
+                                    </div>
+                                    <div class="toast-body">
+                                        {{-- {{ session('error') }} --}}
+                                        @if (is_array(session('error')))
+                                            <ul>
+                                                @foreach (session('error') as $field => $messages)
+                                                    @foreach ($messages as $message)
+                                                    <li>
+                                                        {{ $message }}
+                                                    </li>
+                                                    @endforeach
+                                                @endforeach
+                                            </ul>
+                                        @else
+                                            {{ session('error') }}
+                                        @endif
+                                    </div>
                                 </div>
-                            </div>
-                            {{-- <div class="alert alert-success alert-dismissible" role="alert">
-                                {{ session('success') }}
-                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                            </div> --}}
-                        @endif
-                        @if (Session::has('error'))
-                            <div
-                                class="bs-toast toast fade show bg-danger"
-                                role="alert"
-                                aria-live="assertive"
-                                aria-atomic="true"
-                            >
-                                <div class="toast-header">
-                                    <i class="bx bx-bell me-2"></i>
-                                    <div class="me-auto fw-semibold">Notifikasi</div>
-                                    <small>Baru</small>
-                                    <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
-                                </div>
-                                <div class="toast-body">
-                                    {{ session('error') }}
-                                </div>
-                            </div>
-                            {{-- <div class="alert alert-danger alert-dismissible" role="alert">
-                                {{ session('error') }}
-                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                            </div> --}}
-                        @endif
+                            @endif
+                        </div>
                         @yield('content')
                     </div>
                     <!-- / Content -->
@@ -383,8 +390,10 @@
         <div class="layout-overlay layout-menu-toggle"></div>
     </div>
     <!-- / Layout wrapper -->
-
+    
     <!-- Core JS -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <!-- build:js assets/vendor/js/core.js -->
     <script src="{{ asset('template/admin/assets/vendor/libs/jquery/jquery.js') }}"></script>
     <script src="{{ asset('template/admin/assets/vendor/libs/popper/popper.js') }}"></script>
@@ -402,12 +411,13 @@
 
     <!-- Page JS -->
     <script src="{{ asset('template/admin/assets/js/dashboards-analytics.js') }}"></script>
-    
+
+    <script src="{{ asset('dist/js/select2.min.js') }}"></script>
+
     {{-- Datatables --}}
     <script src="https://cdn.datatables.net/2.1.2/js/dataTables.min.js"></script>
     {{-- <script src="https://cdn.datatables.net/2.1.2/js/dataTables.bootstrap5.min.js"></script> --}}
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-    
+
     @stack('scripts')
     <!-- Place this tag in your head or just before your close body tag. -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>

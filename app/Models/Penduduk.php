@@ -16,7 +16,5 @@ class Penduduk extends Model
 
     protected $table = 'penduduk';
 
-    protected $guarded = [
-        'id',
-    ];
+    protected $guarded = [];
 }

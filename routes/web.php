@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\DusunController;
 use App\Http\Controllers\Admin\KartuKeluargaController;
+use App\Http\Controllers\Admin\PendudukController;
 use App\Http\Controllers\Admin\RukunTetanggaController;
 use App\Http\Controllers\Admin\RukunWargaController;
 use App\Http\Controllers\Admin\SuratKeteranganController;
@@ -38,6 +39,19 @@ Route::controller(RegisterController::class)->group(function () {
 Route::controller(DashboardController::class)->group(function () {
     Route::prefix('dashboard')->group(function () {
         Route::get('/','index')->name('dashboard');
+    });
+});
+
+// Penduduk
+Route::controller(PendudukController::class)->group(function () {
+    Route::prefix('penduduk')->group(function () {
+        Route::get('/','index')->name('penduduk');
+        Route::get('/add','add')->name('penduduk.add');
+        Route::post('/add','store')->name('penduduk.store');
+        Route::get('/edit/{id}','edit')->name('penduduk.edit');
+        Route::post('/update','update')->name('penduduk.update');
+        Route::post('/delete','delete')->name('penduduk.delete');
+        Route::post('/detail','detail')->name('penduduk.detail');
     });
 });
 

@@ -22,7 +22,9 @@ class DatabaseSeeder extends Seeder
             PendidikanAkhirSeeder::class,
             StatusHubKeluargaSeeder::class,
             HubKepalaKeluargaSeeder::class,
-            StatusPerkawinanSeeder::class
+            StatusPerkawinanSeeder::class,
+            RukunTetanggaSeeder::class,
+            RukunWargaSeeder::class
         ]);
     }
 }

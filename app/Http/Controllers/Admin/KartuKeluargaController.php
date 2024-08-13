@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\KartuKeluarga;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Validation\ValidationException;
 
 class KartuKeluargaController extends Controller
 {
@@ -20,10 +21,12 @@ class KartuKeluargaController extends Controller
             return back()->with('error', $ex->getMessage());
         }
     }
+
     public function add()
     {
         return view('admin.kartu-keluarga.add');
     }
+    
     public function edit($id)
     {
         try {
@@ -38,12 +41,11 @@ class KartuKeluargaController extends Controller
 
     public function store(Request $request)
     {
-        $validated = $request->validate([
-            'nomor' => 'required|numeric|min:16|unique:kartu_keluarga,nomor',
-            'kepala_keluarga' => 'required|numeric|min:16'
-        ]);
-
         try {
+            $validated = $request->validate([
+                'nomor' => 'required|numeric|min:16|unique:kartu_keluarga,nomor',
+                'kepala_keluarga' => 'required|numeric|min:16|unique:kartu_keluarga,kepala_keluarga'
+            ]);
             if ($validated) {
                 if ($validated['nomor'] == $validated['kepala_keluarga']) {
                     return back()->with('error', 'Nomor Kartu Keluarga dan kepala keluarga tidak boleh sama!');
@@ -53,6 +55,8 @@ class KartuKeluargaController extends Controller
                 DB::commit();
                 return to_route('kartu-keluarga')->with('success', 'Kartu Keluarga berhasil di tambahkan!');
             }
+        } catch (ValidationException $val) {
+            return back()->with('error', $val->errors());
         } catch (\Exception $ex) {
             DB::rollBack();
             return back()->with('error', $ex->getMessage());
@@ -61,12 +65,11 @@ class KartuKeluargaController extends Controller
 
     public function update(Request $request)
     {
-        $validated = $request->validate([
-            'nomor' => 'required|numeric|min:16|unique:kartu_keluarga,nomor,'.$request->old_nomor.',nomor',
-            'kepala_keluarga' => 'required|numeric|min:16|unique:kartu_keluarga,kepala_keluarga,'.$request->old_nomor.',nomor'
-        ]);
-
         try {
+            $validated = $request->validate([
+                'nomor' => 'required|numeric|min:16|unique:kartu_keluarga,nomor,'.$request->old_nomor.',nomor',
+                'kepala_keluarga' => 'required|numeric|min:16|unique:kartu_keluarga,kepala_keluarga,'.$request->old_nomor.',nomor'
+            ]);
             if ($validated) {
                 if ($validated['nomor'] == $validated['kepala_keluarga']) {
                     return back()->with('error', 'Nomor Kartu Keluarga dan kepala keluarga tidak boleh sama!');
@@ -76,6 +79,8 @@ class KartuKeluargaController extends Controller
                 DB::commit();
                 return to_route('kartu-keluarga')->with('success', 'Kartu Keluarga berhasil di perbarui!');
             }
+        } catch (ValidationException $val) {
+            return back()->with('error', $val->errors());
         } catch (\Exception $ex) {
             DB::rollBack();
             return back()->with('error', $ex->getMessage());
