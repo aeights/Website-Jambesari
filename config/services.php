@@ -35,4 +35,8 @@ return [
         ],
     ],
 
+    'browsershot' => [
+        'include_path' => '$PATH:'.env('BROWSERSHOT_INCLUDE_PATH')
+    ]
+
 ];

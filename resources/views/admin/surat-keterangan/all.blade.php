@@ -6,11 +6,12 @@
             <a href="{{ route('surat-keterangan.add') }}" class="btn btn-primary">Tambah</a>
         </div>
         <div class="card-body">
-            <table id="rukunWarga">
+            <table id="surat">
                 <thead>
                     <tr>
                         <th class="text-start">No</th>
                         <th class="text-start">Nomor Surat</th>
+                        <th class="text-start">NIK</th>
                         <th class="text-start">Nama</th>
                         <th class="text-start">Tanggal</th>
                         <th class="text-start">Opsi</th>
@@ -20,12 +21,13 @@
                     @foreach ($data as $no => $item)
                     <tr>
                         <td class="text-start">{{ $no+1 }}</td>
-                        <td class="text-start">{{ $item->id }}</td>
-                        <td class="text-start">{{ $item->ketua_rw }}</td>
+                        <td class="text-start">{{ $item->nomor_surat }}</td>
+                        <td class="text-start">{{ $item->nik }}</td>
+                        <td class="text-start">{{ $item->nama }}</td>
                         <td class="text-start">{{ $item->tanggal }}</td>
                         <td class="text-start">
-                            <a href="{{ route('surat-keterangan.edit',['id' => $item->id]) }}" class="btn btn-success">Edit</a>
-                            <button id="buttonDeleteRW" data-id="{{ $item->id }}" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalDeleteRW">Hapus</button>
+                            <a href="{{ route('surat-keterangan.generate',['id' => $item->id,'nik' => $item->nik]) }}" class="btn btn-success">Cetak</a>
+                            <button id="buttonDeleteSurat" data-id="{{ $item->id }}" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalDeleteSurat">Hapus</button>
                         </td>
                     </tr>
                     @endforeach
@@ -38,23 +40,23 @@
 <!-- Vertically Centered Modal -->
 <div class="col-lg-4 col-md-6">
     <!-- Modal -->
-    <div class="modal fade" id="modalDeleteRW" tabindex="-1" aria-hidden="true">
+    <div class="modal fade" id="modalDeleteSurat" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="modalCenterTitle">Hapus Rukun Warga</h5>
+                    <h5 class="modal-title" id="modalCenterTitle">Hapus Surat</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     <div class="row">
-                        <h5>Apakah anda yakin akan menghapus rukun warga ini?</h5>
+                        <h5>Apakah anda yakin akan menghapus surat ini?</h5>
                     </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
                         Batal
                     </button>
-                    <button id="buttonConfirmDeleteRW" type="button" class="btn btn-primary">Hapus</button>
+                    <button id="buttonConfirmDeleteSurat" type="button" class="btn btn-primary">Hapus</button>
                 </div>
             </div>
         </div>
@@ -63,7 +65,7 @@
 @endsection
 @push('scripts')
     <script>
-        let table = new DataTable('#rukunWarga',{
+        let table = new DataTable('#surat',{
             "language": {
                 "emptyTable": "Tidak ada data yang tersedia"
             }
@@ -71,20 +73,20 @@
 
         $(document).ready(function () {
             console.log('jquery oke');
-            $(document).on('click', '#buttonDeleteRW', function() {
+            $(document).on('click', '#buttonDeleteSurat', function() {
                 const id = $(this).data('id');
                 console.log('ID yang akan dihapus:', id);
 
                 // Simpan ID ke dalam tombol konfirmasi di modal
-                $('#buttonConfirmDeleteRW').data('id', id);
+                $('#buttonConfirmDeleteSurat').data('id', id);
             });
 
-            $('#buttonConfirmDeleteRW').click(function() {
+            $('#buttonConfirmDeleteSurat').click(function() {
                 const id = $(this).data('id');
                 console.log('Menghapus ID:', id);
 
                 $.ajax({
-                    url: '{{ route('rukun-warga.delete') }}',
+                    url: '{{ route('surat-keterangan.delete') }}',
                     type: 'POST',
                     data: {
                         id: id,

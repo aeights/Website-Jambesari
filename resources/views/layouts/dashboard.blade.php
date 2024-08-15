@@ -211,7 +211,7 @@
                         </a>
                         <ul class="menu-sub">
                             <li class="menu-item">
-                                <a href="{{ route('dashboard') }}" class="menu-link">
+                                <a href="{{ route('surat-keterangan') }}" class="menu-link">
                                     <div>Surat Keterangan</div>
                                 </a>
                             </li>

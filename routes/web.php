@@ -113,5 +113,7 @@ Route::controller(SuratKeteranganController::class)->group(function () {
         Route::get('/edit/{id}','edit')->name('surat-keterangan.edit');
         Route::post('/update','update')->name('surat-keterangan.update');
         Route::post('/delete','delete')->name('surat-keterangan.delete');
+        Route::get('/generate','generateSurat')->name('surat-keterangan.generate');
+        Route::get('/surat/{name}','show')->name('surat-keterangan.show');
     });
 });

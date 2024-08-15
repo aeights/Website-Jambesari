@@ -7,7 +7,7 @@
                     @csrf
                     <h5 class="mb-4">Tambah Rukun Warga</h5>
                     <div class="form-floating mb-3">
-                        <input name="id" type="number" class="form-control" id="floatingInput" placeholder="Nomor RW"
+                        <input name="id" min="1" type="number" class="form-control" id="floatingInput" placeholder="Nomor RW"
                             aria-describedby="floatingInputHelp" />
                         <label for="floatingInput">Nomor Rukun Warga</label>
                         <div id="floatingInputHelp" class="form-text">

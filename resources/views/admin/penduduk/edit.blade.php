@@ -47,10 +47,31 @@
                             Masukkan nama ibu.
                         </div>
                     </div>
+                    <div class="form-floating mb-3">
+                        <input name="alamat" value="{{ $data->alamat }}" type="text" class="form-control" id="floatingInput"
+                            placeholder="Alamat Lengkap" aria-describedby="floatingInputHelp" />
+                        <label for="floatingInput">Alamat</label>
+                        <div id="floatingInputHelp" class="form-text">
+                            Masukkan alamat lengkap.
+                        </div>
+                    </div>
                     <div class="mb-3">
                         <label for="html5-date-input" class="col-md-2 col-form-label">Tanggal Lahir</label>
                         <div class="">
                             <input name="tanggal_lahir" value="{{ $data->tanggal_lahir }}" class="form-control" type="date" id="html5-date-input" />
+                        </div>
+                    </div>
+                    <div class="col-md">
+                        <small class="text-light fw-semibold d-block">Jenis Kelamin</small>
+                        <div class="form-check form-check-inline mt-3">
+                            <input {{ $data->jenis_kelamin == 'LAKI-LAKI' ? 'checked' : '' }} class="form-check-input" type="radio" name="jenis_kelamin" id="inlineRadio1"
+                                value="LAKI-LAKI" />
+                            <label class="form-check-label" for="inlineRadio1">Laki-Laki</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input {{ $data->jenis_kelamin == 'PEREMPUAN' ? 'checked' : '' }} class="form-check-input" type="radio" name="jenis_kelamin" id="inlineRadio2"
+                                value="PEREMPUAN" />
+                            <label class="form-check-label" for="inlineRadio2">Perempuan</label>
                         </div>
                     </div>
                     <div class="mb-3">

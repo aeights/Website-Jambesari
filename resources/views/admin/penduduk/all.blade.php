@@ -26,7 +26,7 @@
                                 <td class="text-start">
                                     <a href="{{ route('penduduk.edit', ['id' => $item->nik]) }}"
                                         class="btn btn-success">Edit</a>
-                                    <button id="buttonDetailPenduduk" data-id="{{ $item->nik }}" class="btn btn-info">Detail</button>
+                                    <button data-id="{{ $item->nik }}" class="btn btn-info buttonDetailPenduduk">Detail</button>
                                     <button id="buttonDeletePenduduk" data-id="{{ $item->nik }}" class="btn btn-danger"
                                         data-bs-toggle="modal" data-bs-target="#modalDeletePenduduk">Hapus</button>
                                 </td>
@@ -122,7 +122,7 @@
                 });
             });
 
-            $('#buttonDetailPenduduk').click(function() {
+            $('.buttonDetailPenduduk').click(function() {
                 const id = $(this).data('id');
                 console.log('Detail ID:', id);
 
@@ -164,6 +164,14 @@
                                 <div class="mb-3">
                                     <label class="form-label">Nama Ibu</label>
                                     <input value="${penduduk.nama_ibu}" class="form-control bg-transparent" type="text" readonly />
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Alamat</label>
+                                    <input value="${penduduk.alamat}" class="form-control bg-transparent" type="text" readonly />
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Jenis Kelamin</label>
+                                    <input value="${penduduk.jenis_kelamin}" class="form-control bg-transparent" type="text" readonly />
                                 </div>
                                 <div class="mb-3">
                                     <label class="form-label">Golongan Darah</label>

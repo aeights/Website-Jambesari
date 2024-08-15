@@ -28,13 +28,15 @@ return new class extends Migration
             $table->string('nama');
             $table->string('tempat_lahir');
             $table->date('tanggal_lahir');
+            $table->enum('jenis_kelamin',['LAKI-LAKI','PEREMPUAN']);
+            $table->string('alamat');
             $table->string('nama_ayah');
             $table->string('nama_ibu');
             $table->foreignIdFor(GolonganDarah::class)->nullable();
             $table->foreignIdFor(KartuKeluarga::class);
-            $table->foreignIdFor(Dusun::class);
-            $table->foreignIdFor(RukunWarga::class);
-            $table->foreignIdFor(RukunTetangga::class);
+            $table->foreignIdFor(Dusun::class)->nullable();
+            $table->foreignIdFor(RukunWarga::class)->nullable();
+            $table->foreignIdFor(RukunTetangga::class)->nullable();
             $table->foreignIdFor(JenisPekerjaan::class);
             $table->foreignIdFor(Agama::class);
             $table->foreignIdFor(StatusHubKeluarga::class);
