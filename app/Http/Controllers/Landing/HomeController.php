@@ -11,4 +11,19 @@ class HomeController extends Controller
     {
         return view('landing.index');
     }
+
+    public function profile()
+    {
+        return view('landing.profil');
+    }
+
+    public function informasi()
+    {
+        return view('landing.informasi');
+    }
+    
+    public function contact()
+    {
+        return view('landing.hubungi');
+    }
 }

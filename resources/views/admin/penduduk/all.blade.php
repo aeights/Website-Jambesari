@@ -12,7 +12,7 @@
                             <th class="text-start">No</th>
                             <th class="text-start">NIK</th>
                             <th class="text-start">Nama</th>
-                            <th class="text-start">Nomor KK</th>
+                            {{-- <th class="text-start">Nomor KK</th> --}}
                             <th class="text-start">Opsi</th>
                         </tr>
                     </thead>
@@ -22,11 +22,11 @@
                                 <td class="text-start">{{ $no + 1 }}</td>
                                 <td class="text-start">{{ $item->nik }}</td>
                                 <td class="text-start">{{ $item->nama }}</td>
-                                <td class="text-start">{{ $item->kartu_keluarga_nomor }}</td>
+                                {{-- <td class="text-start">{{ $item->kartu_keluarga_nomor }}</td> --}}
                                 <td class="text-start">
                                     <a href="{{ route('penduduk.edit', ['id' => $item->nik]) }}"
                                         class="btn btn-success">Edit</a>
-                                    <button data-id="{{ $item->nik }}" class="btn btn-info buttonDetailPenduduk">Detail</button>
+                                    <button id="buttonDetailPenduduk" data-id="{{ $item->nik }}" class="btn btn-info">Detail</button>
                                     <button id="buttonDeletePenduduk" data-id="{{ $item->nik }}" class="btn btn-danger"
                                         data-bs-toggle="modal" data-bs-target="#modalDeletePenduduk">Hapus</button>
                                 </td>
@@ -122,7 +122,7 @@
                 });
             });
 
-            $('.buttonDetailPenduduk').click(function() {
+            $(document).on('click', '#buttonDetailPenduduk', function() {
                 const id = $(this).data('id');
                 console.log('Detail ID:', id);
 

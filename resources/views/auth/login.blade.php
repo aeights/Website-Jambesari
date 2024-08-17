@@ -3,15 +3,15 @@
     <!-- Login -->
     <div class="card">
         <div class="card-body">
-            <h4 class="mb-2">Welcome to Irfan! 🐬</h4>
-            <p class="mb-4">Please sign-in to your account and start the adventure</p>
+            <h4 class="mb-2">Selamat Datang 🚀</h4>
+            <p class="mb-4">Silahkan login menggunakan email dan password anda!</p>
 
             <form id="formAuthentication" class="mb-3" action="{{ route('login.process') }}" method="POST">
                 @csrf
                 <div class="mb-3">
                     <label for="email" class="form-label">Email</label>
                     <input type="text" class="form-control" id="email" name="email"
-                        placeholder="Enter your email" autofocus />
+                        placeholder="Masukkan email anda" autofocus />
                 </div>
                 <div class="mb-3 form-password-toggle">
                     <div class="d-flex justify-content-between">
@@ -30,11 +30,11 @@
                 <div class="mb-3">
                     <div class="form-check">
                         <input class="form-check-input" type="checkbox" id="remember-me" />
-                        <label class="form-check-label" for="remember-me"> Remember Me </label>
+                        <label class="form-check-label" for="remember-me"> Ingat saya </label>
                     </div>
                 </div>
                 <div class="mb-3">
-                    <button class="btn btn-primary d-grid w-100" type="submit">Sign in</button>
+                    <button class="btn btn-primary d-grid w-100" type="submit">Masuk</button>
                 </div>
             </form>
 
