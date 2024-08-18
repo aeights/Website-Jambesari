@@ -36,33 +36,27 @@
                     <h1 class="text-center mb-4">VISI</h1>
                     <div class="row gy-2 gx-4 mb-4">
                         <div class="col-sm-13">
-                            <h3 class="mb-0"><i class="fa text-primary me-2"></i>" Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et
-                            eos. Clita erat ipsum et lorem et sit."</h3>
+                            <h3 class="mb-0"><i class="fa text-primary me-2"></i>"Menjadikan Desa Jambesari Yang Aman, Sejahtera, Agamis Adil dan Makmur  Melalui Peningkatan Keagamaan dan Pemberdayaan Masyarakat"</h3>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.3s">
                     <h1 class="text-center mb-4">MISI</h1>
                     <div class="row gy-2 gx-4 mb-4">
-                        <div class="col-sm-6">
-                            <h5 class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Skilled Instructors</h5>
+                        <div class="col-sm-13">
+                            <h5 class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Mewujudkan Pembangunan Infrastruktur, Ekonomi dan  Lingkungan Hidup yang berkesinambungan dan tepat guna.</h5>
                         </div>
-                        <div class="col-sm-6">
-                            <h5 class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Online Classes</h5>
+                        <div class="col-sm-13">
+                            <h5 class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Mewujudkan Kesejahteraan Sosial dan Kemasyarakatan</h5>
                         </div>
-                        <div class="col-sm-6">
-                            <h5 class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>International Certificate
-                            </h5>
+                        <div class="col-sm-13">
+                            <h5 class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Meningkatnya Pemberdayaan Masyarakat Desa</h5>
                         </div>
-                        <div class="col-sm-6">
-                            <h5 class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Skilled Instructors</h5>
+                        <div class="col-sm-13">
+                            <h5 class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Meningkatnya Akuntabilitas Penyelenggaraan Pemerintahan Desa</h5>
                         </div>
-                        <div class="col-sm-6">
-                            <h5 class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Online Classes</h5>
-                        </div>
-                        <div class="col-sm-6">
-                            <h5 class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>International Certificate
-                            </h5>
+                        <div class="col-sm-13">
+                            <h5 class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Meningkatkan Kegiatan Keagamaan Masyarakat Desa</h5>
                         </div>
                     </div>
                 </div>
