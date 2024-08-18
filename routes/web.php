@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\DusunController;
+use App\Http\Controllers\Admin\HubungiController;
+use App\Http\Controllers\Admin\InformasiController;
 use App\Http\Controllers\Admin\KartuKeluargaController;
 use App\Http\Controllers\Admin\PendudukController;
 use App\Http\Controllers\Admin\ProfileController;
@@ -127,8 +129,34 @@ Route::middleware('auth')->group(function () {
     Route::controller(ProfileController::class)->group(function () {
         Route::prefix('profile')->group(function () {
             Route::get('/','index')->name('profile');
-            Route::get('/edit/{id}','edit')->name('profile.edit');
+            Route::get('/edit','edit')->name('profile.edit');
             Route::post('/update','update')->name('profile.update');
+            Route::get('/change-password','changePassword')->name('profile.change-password');
+            Route::post('/change-password','changePasswordProcess')->name('profile.change-password.process');
+        });
+    });
+
+    // Informasi
+    Route::controller(InformasiController::class)->group(function () {
+        Route::prefix('admin/informasi')->group(function () {
+            Route::get('/','index')->name('informasi');
+            Route::get('/add','add')->name('informasi.add');
+            Route::post('/add','store')->name('informasi.store');
+            Route::get('/edit/{id}','edit')->name('informasi.edit');
+            Route::post('/update','update')->name('informasi.update');
+            Route::post('/delete','delete')->name('informasi.delete');
+        });
+    });
+
+    // Informasi
+    Route::controller(HubungiController::class)->group(function () {
+        Route::prefix('hubungi')->group(function () {
+            Route::get('/','index')->name('hubungi');
+            Route::get('/add','add')->name('hubungi.add');
+            Route::post('/add','store')->name('hubungi.store');
+            Route::get('/edit/{id}','edit')->name('hubungi.edit');
+            Route::post('/update','update')->name('hubungi.update');
+            Route::post('/delete','delete')->name('hubungi.delete');
         });
     });
 });

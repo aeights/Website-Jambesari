@@ -50,6 +50,10 @@
     {{-- Datatables --}}
     <link rel="stylesheet" href="https://cdn.datatables.net/2.1.2/css/dataTables.dataTables.css" />
     {{-- <link rel="stylesheet" href="https://cdn.datatables.net/2.1.2/css/dataTables.bootstrap5.min.css" /> --}}
+
+    {{-- Summernote --}}
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
+
 </head>
 
 <body>
@@ -130,7 +134,7 @@
                     </li>
                     <li class="menu-item">
                         <a href="javascript:void(0);" class="menu-link menu-toggle">
-                            <i class="menu-icon tf-icons bx bx-dock-top"></i>
+                            <i class="menu-icon tf-icons bx bx-user"></i>
                             <div>Kependudukan</div>
                         </a>
                         <ul class="menu-sub">
@@ -206,7 +210,7 @@
                     </li>
                     <li class="menu-item">
                         <a href="javascript:void(0);" class="menu-link menu-toggle">
-                            <i class="menu-icon tf-icons bx bx-dock-top"></i>
+                            <i class="menu-icon tf-icons bx bx-envelope"></i>
                             <div>Surat</div>
                         </a>
                         <ul class="menu-sub">
@@ -216,6 +220,21 @@
                                 </a>
                             </li>
                         </ul>
+                    </li>
+                    <li class="menu-header small text-uppercase">
+                        <span class="menu-header-text">Landing</span>
+                    </li>
+                    <li class="menu-item">
+                        <a href="{{ route('informasi') }}" class="menu-link">
+                            <i class="menu-icon tf-icons bx bx-collection"></i>
+                            <div>Informasi</div>
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="{{ route('hubungi') }}" class="menu-link">
+                            <i class="menu-icon tf-icons bx bx-phone"></i>
+                            <div>Hubungi</div>
+                        </a>
                     </li>
                 </ul>
             </aside>
@@ -290,6 +309,12 @@
                                         <a class="dropdown-item" href="{{ route('profile') }}">
                                             <i class="bx bx-user me-2"></i>
                                             <span class="align-middle">My Profile</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="{{ route('profile.change-password') }}">
+                                            <i class="bx bx-lock-alt me-2"></i>
+                                            <span class="align-middle">Ubah Password</span>
                                         </a>
                                     </li>
                                     <li>
@@ -413,6 +438,9 @@
     {{-- Datatables --}}
     <script src="https://cdn.datatables.net/2.1.2/js/dataTables.min.js"></script>
     {{-- <script src="https://cdn.datatables.net/2.1.2/js/dataTables.bootstrap5.min.js"></script> --}}
+
+    {{-- Summernote --}}
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
 
     @stack('scripts')
     <!-- Place this tag in your head or just before your close body tag. -->

@@ -2,6 +2,9 @@
 @section('content')
 <div class="col-12 mb-4">
     <div class="card">
+        <div class="me-3 mt-3 d-flex justify-content-end">
+            <a href="{{ route('profile.edit') }}" class="btn btn-primary">Edit</a>
+        </div>
         <div class="card-body">
             <div class="mb-3">
                 <label class="form-label">Nama</label>
@@ -17,7 +20,7 @@
             </div>
             <div class="mb-3">
                 <label class="form-label">Jabatan</label>
-                <input value="{{ $profile->jabatan_id }}" class="form-control bg-transparent" type="text" readonly />
+                <input value="{{ $profile->jabatan }}" class="form-control bg-transparent" type="text" readonly />
             </div>
         </div>
     </div>

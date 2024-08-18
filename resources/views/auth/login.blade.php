@@ -39,9 +39,9 @@
             </form>
 
             <p class="text-center">
-                <span>New on our platform?</span>
+                <span>Belum punya akun?</span>
                 <a href="{{ route('register') }}">
-                    <span>Create an account</span>
+                    <span>Daftar</span>
                 </a>
             </p>
         </div>
