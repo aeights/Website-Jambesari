@@ -4,7 +4,7 @@
       <div class="container-fluid p-0 mb-5">
         <div class="owl-carousel header-carousel position-relative">
             <div class="owl-carousel-item position-relative">
-                <img class="img-fluid" src="{{ asset('assets/jambesari.jpg') }}" alt="">
+                <img class="img-fluid" style="height: 100vh" src="{{ asset('assets/pendopo.png') }}" alt="">
                 <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center" style="background: rgba(24, 29, 56, .7);">
                     <div class="container">
                         <div class="row justify-content-start">
@@ -12,15 +12,15 @@
                                 <h5 class="text-primary text-uppercase mb-3 animated slideInDown">Official Website Desa Jambesari</h5>
                                 <h1 class="display-3 text-white animated slideInDown">Selamat Datang di Desa Jambesari</h1>
                                 <p class="fs-5 text-white mb-4 pb-2">Desa Jambesari terletak di Kecamatan Jambesari Darus Sholah, Kabupaten Bondowoso. Wesite ini digunakan pusat informasi dan layanan digital bagi warga dan pengunjung.</p>
-                                <a href="" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Selengkapnya</a>
-                                <a href="{{ route('login') }}" class="btn btn-light py-md-3 px-md-5 animated slideInRight">Masuk</a>
+                                <a href="{{ route('landing.profile') }}" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Selengkapnya</a>
+                                <a href="{{ route('login') }}" class="btn btn-light py-md-3 px-md-5 animated slideInRight">Masuk</a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="owl-carousel-item position-relative">
-                <img class="img-fluid" src="{{ asset('assets/jambesari.jpg') }}" alt="">
+                <img class="img-fluid" style="height: 100vh" src="{{ asset('assets/beranda/carousel-2.jpg') }}" alt="">
                 <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center" style="background: rgba(24, 29, 56, .7);">
                     <div class="container">
                         <div class="row justify-content-start">
@@ -28,8 +28,8 @@
                                 <h5 class="text-primary text-uppercase mb-3 animated slideInDown">Official Website Desa Jambesari</h5>
                                 <h1 class="display-3 text-white animated slideInDown">Selamat Datang di Desa Jambesari</h1>
                                 <p class="fs-5 text-white mb-4 pb-2">Desa Jambesari terletak di Kecamatan Jambesari Darus Sholah, Kabupaten Bondowoso. Wesite ini digunakan pusat informasi dan layanan digital bagi warga dan pengunjung.</p>
-                                <a href="" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Selengkapnya</a>
-                                <a href="" class="btn btn-light py-md-3 px-md-5 animated slideInRight">Masuk</a>
+                                <a href="{{ route('landing.profile') }}" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Selengkapnya</a>
+                                <a href="{{ route('login') }}" class="btn btn-light py-md-3 px-md-5 animated slideInRight">Masuk</a>
                             </div>
                         </div>
                     </div>
@@ -92,7 +92,7 @@
             <div class="row g-5">
                 <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s" style="min-height: 400px;">
                     <div class="position-relative h-100">
-                        <img class="img-fluid position-absolute w-100 h-100" src="{{ asset('assets/jambesari.jpg') }}" alt="" style="object-fit: cover;">
+                        <img class="img-fluid position-absolute w-100 h-100" src="{{ asset('assets/pendopo.png') }}" alt="" style="object-fit: cover;">
                     </div>
                 </div>
                 <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.3s">
@@ -186,91 +186,20 @@
                 <h6 class="section-title bg-white text-center text-primary px-3">Informasi</h6>
                 <h1 class="mb-5">Informasi Terkini Desa Jambesari</h1>
             </div>
-            <div class="row g-4 justify-content-center">
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                    <div class="course-item bg-light">
-                        <div class="position-relative overflow-hidden">
-                            <img class="img-fluid" src="{{ asset('assets/beranda/Sepak Bola.jpg') }}" alt="">
-                            <!-- <div class="w-100 d-flex justify-content-center position-absolute bottom-0 start-0 mb-4">
-                                <a href="#" class="flex-shrink-0 btn btn-sm btn-primary px-3 border-end" style="border-radius: 30px 0 0 30px;">Read More</a>
-                                <a href="#" class="flex-shrink-0 btn btn-sm btn-primary px-3" style="border-radius: 0 30px 30px 0;">Join Now</a>
-                            </div> -->
+            <div class="row g-4 justify-content-start">
+                @foreach ($informasi as $item)
+                    <div id="informasiContainer" class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s" onclick="window.location.href = '{{ route('landing.detail-informasi',['id' => $item->id]) }}'">
+                        <div class="course-item bg-light">
+                            <div class="overflow-hidden" style="height: 300px">
+                                <img class="img-fluid w-100 h-100" style="object-fit: cover" src="{{ $item->getFirstMediaUrl('informasi') }}" alt="">
+                            </div>
+                            <div class="text-center p-4 pb-1">
+                                <h3 class="mb-0">{{ $item->judul }}</h3>
+                                <h5 class="mb-4">{{ \Carbon\Carbon::parse($item->created_at)->locale('id')->translatedFormat('d F Y') }}</h5>
+                            </div>
                         </div>
-                        <div class="text-center p-4 pb-0">
-                            <h3 class="mb-0">Trofeo Sepak Bola</h3>
-                            <!-- <div class="mb-3">
-                                <small class="fa fa-star text-primary"></small>
-                                <small class="fa fa-star text-primary"></small>
-                                <small class="fa fa-star text-primary"></small>
-                                <small class="fa fa-star text-primary"></small>
-                                <small class="fa fa-star text-primary"></small>
-                                <small>(123)</small>
-                            </div> -->
-                            <h5 class="mb-4">Minggu, 14 Juli 2024</h5>
-                        </div>
-                        <!-- <div class="d-flex border-top">
-                            <small class="flex-fill text-center border-end py-2"><i class="fa fa-user-tie text-primary me-2"></i>John Doe</small>
-                            <small class="flex-fill text-center border-end py-2"><i class="fa fa-clock text-primary me-2"></i>1.49 Hrs</small>
-                            <small class="flex-fill text-center py-2"><i class="fa fa-user text-primary me-2"></i>30 Students</small>
-                        </div> -->
                     </div>
-                </div>
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-                    <div class="course-item bg-light">
-                        <div class="position-relative overflow-hidden">
-                            <img class="img-fluid" src="{{ asset('assets/beranda/Sepak Bola.jpg') }}" alt="">
-                            <!-- <div class="w-100 d-flex justify-content-center position-absolute bottom-0 start-0 mb-4">
-                                <a href="#" class="flex-shrink-0 btn btn-sm btn-primary px-3 border-end" style="border-radius: 30px 0 0 30px;">Read More</a>
-                                <a href="#" class="flex-shrink-0 btn btn-sm btn-primary px-3" style="border-radius: 0 30px 30px 0;">Join Now</a>
-                            </div> -->
-                        </div>
-                        <div class="text-center p-4 pb-0">
-                            <h3 class="mb-0">Trofeo Sepak Bola</h3>
-                            <!-- <div class="mb-3">
-                                <small class="fa fa-star text-primary"></small>
-                                <small class="fa fa-star text-primary"></small>
-                                <small class="fa fa-star text-primary"></small>
-                                <small class="fa fa-star text-primary"></small>
-                                <small class="fa fa-star text-primary"></small>
-                                <small>(123)</small>
-                            </div> -->
-                            <h5 class="mb-4">Minggu, 14 Juli 2024</h5>
-                        </div>
-                        <!-- <div class="d-flex border-top">
-                            <small class="flex-fill text-center border-end py-2"><i class="fa fa-user-tie text-primary me-2"></i>John Doe</small>
-                            <small class="flex-fill text-center border-end py-2"><i class="fa fa-clock text-primary me-2"></i>1.49 Hrs</small>
-                            <small class="flex-fill text-center py-2"><i class="fa fa-user text-primary me-2"></i>30 Students</small>
-                        </div> -->
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
-                    <div class="course-item bg-light">
-                        <div class="position-relative overflow-hidden">
-                            <img class="img-fluid" src="{{ asset('assets/beranda/Sepak Bola.jpg') }}" alt="">
-                            <!-- <div class="w-100 d-flex justify-content-center position-absolute bottom-0 start-0 mb-4">
-                                <a href="#" class="flex-shrink-0 btn btn-sm btn-primary px-3 border-end" style="border-radius: 30px 0 0 30px;">Read More</a>
-                                <a href="#" class="flex-shrink-0 btn btn-sm btn-primary px-3" style="border-radius: 0 30px 30px 0;">Join Now</a>
-                            </div> -->
-                        </div>
-                        <div class="text-center p-4 pb-0">
-                            <h3 class="mb-0">Trofeo Sepak Bola</h3>
-                            <!-- <div class="mb-3">
-                                <small class="fa fa-star text-primary"></small>
-                                <small class="fa fa-star text-primary"></small>
-                                <small class="fa fa-star text-primary"></small>
-                                <small class="fa fa-star text-primary"></small>
-                                <small class="fa fa-star text-primary"></small>
-                                <small>(123)</small>
-                            </div> -->
-                            <h5 class="mb-4">Minggu, 14 Juli 2024</h5>
-                        </div>
-                        <!-- <div class="d-flex border-top">
-                            <small class="flex-fill text-center border-end py-2"><i class="fa fa-user-tie text-primary me-2"></i>John Doe</small>
-                            <small class="flex-fill text-center border-end py-2"><i class="fa fa-clock text-primary me-2"></i>1.49 Hrs</small>
-                            <small class="flex-fill text-center py-2"><i class="fa fa-user text-primary me-2"></i>30 Students</small>
-                        </div> -->
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </div>

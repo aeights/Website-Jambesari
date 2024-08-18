@@ -42,7 +42,7 @@ class RukunTetanggaController extends Controller
         try {
             $validated = $request->validate([
                 'id' => 'required|numeric|unique:rukun_tetangga,id',
-                'ketua_rt' => 'required|numeric|min:16'
+                'ketua_rt' => 'required|numeric|min_digits:16|max_digits:16'
             ]);
             if ($validated) {
                 DB::beginTransaction();
@@ -63,7 +63,7 @@ class RukunTetanggaController extends Controller
         try {
             $validated = $request->validate([
                 'id' => 'required|numeric|unique:rukun_tetangga,id,'.$request->id,
-                'ketua_rt' => 'required|numeric|min:16'
+                'ketua_rt' => 'required|numeric|min_digits:16|max_digits:16'
             ]);
             if ($validated) {
                 DB::beginTransaction();

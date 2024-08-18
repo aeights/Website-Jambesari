@@ -27,7 +27,7 @@ class InformasiController extends Controller
     {
         try {
             $validated = $request->validate([
-                'judul' => 'required',
+                'judul' => 'required|min:3|unique:informasi,judul',
                 'isi' => 'required',
                 'gambar' => 'required|image'
             ]);
@@ -64,7 +64,7 @@ class InformasiController extends Controller
     {
         try {
             $validated = $request->validate([
-                'judul' => 'required',
+                'judul' => 'required|min:3|unique:informasi,judul,'.$request->id,
                 'isi' => 'required',
                 'gambar' => 'required|image'
             ]);

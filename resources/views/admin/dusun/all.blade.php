@@ -5,7 +5,7 @@
             <div class="me-3 mt-3 d-flex justify-content-end">
                 <a href="{{ route('dusun.add') }}" class="btn btn-primary">Tambah</a>
             </div>
-            <div class="card-body">
+            <div class="card-body" style="overflow-x: auto;">
                 <table id="dusun">
                     <thead>
                         <tr>

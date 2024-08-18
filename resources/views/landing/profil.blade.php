@@ -95,8 +95,8 @@
             <div class="row g-4">
                 <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
                     <div class="team-item bg-light ">
-                        <div class="overflow-hidden" style="width: 300px; height: 300px; position: relative;">
-                            <img class="img-fluid w-100% h-100%" src="{{ asset('assets/p maltup.jpg') }}" alt="" style="object-fit: cover;">
+                        <div class="overflow-hidden" style="height: 300px">
+                            <img class="img-fluid" src="{{ asset('assets/p maltup.jpg') }}" alt="" style="object-fit: cover;">
                         </div>
                         <div class="position-relative d-flex justify-content-center" style="margin-top: -23px;">
                         </div>
@@ -108,8 +108,8 @@
                 </div>
                 <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
                     <div class="team-item bg-light">
-                        <div class="overflow-hidden" style="width: 300px; height: 300px; position: relative;">
-                            <img class="img-fluid w-100% h-100%" src="{{ asset('assets/p farid.jpg') }}" alt="">
+                        <div class="overflow-hidden" style="height: 300px">
+                            <img class="img-fluid" src="{{ asset('assets/p farid.jpg') }}" alt="" style="object-fit: cover;">
                         </div>
                         <div class="position-relative d-flex justify-content-center" style="margin-top: -23px;">
                         </div>
@@ -121,8 +121,8 @@
                 </div>
                 <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
                     <div class="team-item bg-light">
-                        <div class="overflow-hidden" style="width: 300px; height: 300px; position: relative;">
-                            <img class="img-fluid w-100% h-100%" src="{{ asset('assets/p hawapi.jpg') }}" alt="">
+                        <div class="overflow-hidden" style="height: 300px">
+                            <img class="img-fluid" src="{{ asset('assets/p hawapi.jpg') }}" alt="" style="object-fit: cover;">
                         </div>
                         <div class="position-relative d-flex justify-content-center" style="margin-top: -23px;">
                         </div>
@@ -134,8 +134,8 @@
                 </div>
                 <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.7s">
                     <div class="team-item bg-light">
-                        <div class="overflow-hidden" style="width: 300px; height: 300px; position: relative;">
-                            <img class="img-fluid w-100% h-100%" src="{{ asset('assets/p subhan.jpg') }}" alt="">
+                        <div class="overflow-hidden" style="height: 300px">
+                            <img class="img-fluid" src="{{ asset('assets/p subhan.jpg') }}" alt="" style="object-fit: cover;">
                         </div>
                         <div class="position-relative d-flex justify-content-center" style="margin-top: -23px;">
                         </div>
@@ -149,8 +149,8 @@
             <div class="row g-4" style="margin-top: 16px;">
                 <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
                     <div class="team-item bg-light">
-                        <div class="overflow-hidden" style="width: 300px; height: 300px; position: relative;">
-                            <img class="img-fluid w-100% h-100%" src="{{ asset('assets/p istikhori.png') }}" alt="">
+                        <div class="overflow-hidden" style="height: 300px">
+                            <img class="img-fluid" src="{{ asset('assets/p istikhori.png') }}" alt="" style="object-fit: cover;">
                         </div>
                         <div class="position-relative d-flex justify-content-center" style="margin-top: -23px;">
                         </div>
@@ -162,8 +162,8 @@
                 </div>
                 <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
                     <div class="team-item bg-light">
-                        <div class="overflow-hidden" style="width: 300px; height: 300px; position: relative;">
-                            <img class="img-fluid w-100% h-100%" src="{{ asset('assets/p ali yatsur.jpg') }}" alt="">
+                        <div class="overflow-hidden" style="height: 300px">
+                            <img class="img-fluid" src="{{ asset('assets/p ali yatsur.jpg') }}" alt="" style="object-fit: cover;">
                         </div>
                         <div class="position-relative d-flex justify-content-center" style="margin-top: -23px;">
                         </div>
@@ -175,8 +175,8 @@
                 </div>
                 <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
                     <div class="team-item bg-light">
-                        <div class="overflow-hidden" style="width: 300px; height: 300px; position: relative;">
-                            <img class="img-fluid w-100% h-100%" src="{{ asset('assets/profile-pic.jpg') }}" alt="">
+                        <div class="overflow-hidden" style="height: 300px">
+                            <img class="img-fluid" src="{{ asset('assets/profile-pic.jpg') }}" alt="" style="object-fit: cover;">
                         </div>
                         <div class="position-relative d-flex justify-content-center" style="margin-top: -23px;">
                         </div>
@@ -188,8 +188,8 @@
                 </div>
                 <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.7s">
                     <div class="team-item bg-light">
-                        <div class="overflow-hidden" style="width: 300px; height: 300px; position: relative;">
-                            <img class="img-fluid w-100% h-100%" src="{{ asset('assets/p lutfi.jpg') }}" alt="">
+                        <div class="overflow-hidden" style="height: 300px">
+                            <img class="img-fluid" src="{{ asset('assets/p lutfi.jpg') }}" alt="" style="object-fit: cover;">
                         </div>
                         <div class="position-relative d-flex justify-content-center" style="margin-top: -23px;">
                         </div>
@@ -203,8 +203,8 @@
             <div class="row g-4" style="margin-top: 16px;">
                 <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
                     <div class="team-item bg-light">
-                        <div class="overflow-hidden" style="width: 300px; height: 300px; position: relative;">
-                            <img class="img-fluid w-100% h-100%" src="{{ asset('assets/p rudi.jpg') }}" alt="">
+                        <div class="overflow-hidden" style="height: 300px">
+                            <img class="img-fluid" src="{{ asset('assets/p rudi.jpg') }}" alt="" style="object-fit: cover;">
                         </div>
                         <div class="position-relative d-flex justify-content-center" style="margin-top: -23px;">
                         </div>
@@ -216,8 +216,8 @@
                 </div>
                 <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
                     <div class="team-item bg-light">
-                        <div class="overflow-hidden" style="width: 300px; height: 300px; position: relative;">
-                            <img class="img-fluid w-100% h-100%" src="{{ asset('assets/p aziz.jpg') }}" alt="">
+                        <div class="overflow-hidden" style="height: 300px">
+                            <img class="img-fluid" src="{{ asset('assets/p aziz.jpg') }}" alt="" style="object-fit: cover;">
                         </div>
                         <div class="position-relative d-flex justify-content-center" style="margin-top: -23px;">
                         </div>
@@ -229,8 +229,8 @@
                 </div>
                 <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
                     <div class="team-item bg-light">
-                        <div class="overflow-hidden" style="width: 300px; height: 300px; position: relative;">
-                            <img class="img-fluid w-100% h-100%" src="{{ asset('assets/p habibi.jpg') }}" alt="">
+                        <div class="overflow-hidden" style="height: 300px">
+                            <img class="img-fluid" src="{{ asset('assets/p habibi.jpg') }}" alt="" style="object-fit: cover;">
                         </div>
                         <div class="position-relative d-flex justify-content-center" style="margin-top: -23px;">
                         </div>
@@ -242,8 +242,8 @@
                 </div>
                 <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.7s">
                     <div class="team-item bg-light">
-                        <div class="overflow-hidden" style="width: 300px; height: 300px; position: relative;">
-                            <img class="img-fluid w-100% h-100%" src="{{ asset('assets/p mahrus.png') }}" alt="">
+                        <div class="overflow-hidden" style="height: 300px">
+                            <img class="img-fluid" src="{{ asset('assets/p mahrus.png') }}" alt="" style="object-fit: cover;">
                         </div>
                         <div class="position-relative d-flex justify-content-center" style="margin-top: -23px;">
                         </div>
@@ -257,8 +257,8 @@
             <div class="row g-4" style="margin-top: 16px;">
                 <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
                     <div class="team-item bg-light">
-                        <div class="overflow-hidden" style="width: 300px; height: 300px; position: relative;">
-                            <img class="img-fluid w-100% h-100%" src="{{ asset('assets/p fatlullah.jpg') }}" alt="">
+                        <div class="overflow-hidden" style="height: 300px">
+                            <img class="img-fluid" src="{{ asset('assets/p fatlullah.jpg') }}" alt="" style="object-fit: cover;">
                         </div>
                         <div class="position-relative d-flex justify-content-center" style="margin-top: -23px;">
                         </div>
@@ -270,8 +270,8 @@
                 </div>
                 <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
                     <div class="team-item bg-light">
-                        <div class="overflow-hidden" style="width: 300px; height: 300px; position: relative;">
-                            <img class="img-fluid w-100% h-100%" src="{{ asset('assets/p fauzan.jpg') }}" alt="">
+                        <div class="overflow-hidden" style="height: 300px">
+                            <img class="img-fluid" src="{{ asset('assets/p fauzan.jpg') }}" alt="" style="object-fit: cover;">
                         </div>
                         <div class="position-relative d-flex justify-content-center" style="margin-top: -23px;">
                         </div>

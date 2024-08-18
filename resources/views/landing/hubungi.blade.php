@@ -46,29 +46,30 @@
                     tabindex="0"></iframe>
             </div>
             <div class="col-lg-4 col-md-12 wow fadeInUp" data-wow-delay="0.5s">
-                <form>
+                <form action="{{ route('hubungi.store') }}" method="POST">
+                    @csrf
                     <div class="row g-3">
                         <div class="col-md-6">
                             <div class="form-floating">
-                                <input type="text" class="form-control" id="name" placeholder="Your Name">
+                                <input name="nama" type="text" class="form-control" id="name" placeholder="Masukkan nama anda">
                                 <label for="name">Nama Anda</label>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-floating">
-                                <input type="email" class="form-control" id="email" placeholder="Your Email">
+                                <input name="email" type="email" class="form-control" id="email" placeholder="Masukkan email anda">
                                 <label for="email">Email Anda</label>
                             </div>
                         </div>
                         <div class="col-12">
                             <div class="form-floating">
-                                <input type="text" class="form-control" id="subject" placeholder="Subject">
+                                <input name="subjek" type="text" class="form-control" id="subject" placeholder="Subjek pesan">
                                 <label for="subject">Subjek</label>
                             </div>
                         </div>
                         <div class="col-12">
                             <div class="form-floating">
-                                <textarea class="form-control" placeholder="Leave a message here" id="message" style="height: 150px"></textarea>
+                                <textarea name="pesan" class="form-control" placeholder="Tulis pesan disini" id="message" style="height: 150px"></textarea>
                                 <label for="message">Tulis Pesan</label>
                             </div>
                         </div>

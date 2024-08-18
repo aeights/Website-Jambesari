@@ -41,8 +41,27 @@ class HubungiController extends Controller
         }
     }
 
-    public function view()
+    public function detail(Request $request)
     {
+        try {
+            $data = Hubungi::findOrFail($request->id);
+            return $data;
+        } catch (\Exception $ex) {
+            return back()->with('error', $ex->getMessage());
+        }
+    }
 
+    public function delete(Request $request)
+    {
+        try {
+            DB::beginTransaction();
+            $hubungi = Hubungi::findOrFail($request->id);
+            $hubungi->delete();
+            DB::commit();
+            return to_route('hubungi')->with('success', 'Pesan berhasil di di hapus!');
+        } catch (\Exception $ex) {
+            DB::rollBack();
+            return back()->with('error', $ex->getMessage());
+        }
     }
 }

@@ -21,7 +21,7 @@
             <div class="row">
                 <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
                     &copy; <a class="border-bottom">Official Website Desa Jambesari</a>, All Right Reserved.
-                    Made by <a class="border-bottom">KKN UMD 99 2024</a><br><br>
+                    Made by <a href="https://www.instagram.com/kkn99jambesari" target="_blank" class="border-bottom">KKN UMD 99 UNEJ 2024</a><br><br>
                 </div>
             </div>
         </div>

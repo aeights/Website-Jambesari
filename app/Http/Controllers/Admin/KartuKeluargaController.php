@@ -43,8 +43,8 @@ class KartuKeluargaController extends Controller
     {
         try {
             $validated = $request->validate([
-                'nomor' => 'required|numeric|min:16|unique:kartu_keluarga,nomor',
-                'kepala_keluarga' => 'required|numeric|min:16|unique:kartu_keluarga,kepala_keluarga'
+                'nomor' => 'required|numeric|min_digits:16|max_digits:16|unique:kartu_keluarga,nomor',
+                'kepala_keluarga' => 'required|numeric|min_digits:16|max_digits:16|unique:kartu_keluarga,kepala_keluarga'
             ]);
             if ($validated) {
                 if ($validated['nomor'] == $validated['kepala_keluarga']) {
@@ -67,8 +67,8 @@ class KartuKeluargaController extends Controller
     {
         try {
             $validated = $request->validate([
-                'nomor' => 'required|numeric|min:16|unique:kartu_keluarga,nomor,'.$request->old_nomor.',nomor',
-                'kepala_keluarga' => 'required|numeric|min:16|unique:kartu_keluarga,kepala_keluarga,'.$request->old_nomor.',nomor'
+                'nomor' => 'required|numeric|min_digits:16|max_digits:16|unique:kartu_keluarga,nomor,'.$request->old_nomor.',nomor',
+                'kepala_keluarga' => 'required|numeric|min_digits:16|max_digits:16|unique:kartu_keluarga,kepala_keluarga,'.$request->old_nomor.',nomor'
             ]);
             if ($validated) {
                 if ($validated['nomor'] == $validated['kepala_keluarga']) {

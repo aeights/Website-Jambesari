@@ -99,7 +99,7 @@ class PendudukController extends Controller
     {
         try {
             $validated = $request->validate([
-                "nik" => "required|numeric|min:16|unique:penduduk,nik",
+                "nik" => "required|numeric|min_digits:16|max_digits:16|unique:penduduk,nik",
                 "nama" => "required",
                 "tempat_lahir" => "required",
                 "tanggal_lahir" => "required|date",
@@ -140,7 +140,7 @@ class PendudukController extends Controller
     {
         try {
             $validated = $request->validate([
-                "nik" => "required|numeric|min:16|unique:penduduk,nik,".$request->old_nik.",nik",
+                "nik" => "required|numeric|min_digits:16|max_digits:16|unique:penduduk,nik,".$request->old_nik.",nik",
                 "nama" => "required",
                 "tempat_lahir" => "required",
                 "tanggal_lahir" => "required|date",

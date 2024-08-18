@@ -24,6 +24,7 @@ Route::controller(HomeController::class)->group(function () {
     Route::get('profil','profile')->name('landing.profile');
     Route::get('informasi','information')->name('landing.information');
     Route::get('hubungi-kami','contact')->name('landing.contact');
+    Route::get('informasi/{id}','detailInformasi')->name('landing.detail-informasi');
 });
 
 Route::get('/logout',[LoginController::class,'logout'])->name('logout');
@@ -148,15 +149,14 @@ Route::middleware('auth')->group(function () {
         });
     });
 
-    // Informasi
-    Route::controller(HubungiController::class)->group(function () {
-        Route::prefix('hubungi')->group(function () {
-            Route::get('/','index')->name('hubungi');
-            Route::get('/add','add')->name('hubungi.add');
-            Route::post('/add','store')->name('hubungi.store');
-            Route::get('/edit/{id}','edit')->name('hubungi.edit');
-            Route::post('/update','update')->name('hubungi.update');
-            Route::post('/delete','delete')->name('hubungi.delete');
-        });
+});
+
+// hubungi
+Route::controller(HubungiController::class)->group(function () {
+    Route::prefix('hubungi')->group(function () {
+        Route::get('/','index')->name('hubungi');
+        Route::post('/add','store')->name('hubungi.store');
+        Route::post('/delete','delete')->name('hubungi.delete');
+        Route::post('/detail','detail')->name('hubungi.detail');
     });
 });

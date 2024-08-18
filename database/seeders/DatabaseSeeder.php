@@ -26,7 +26,8 @@ class DatabaseSeeder extends Seeder
             StatusPerkawinanSeeder::class,
             RukunTetanggaSeeder::class,
             RukunWargaSeeder::class,
-            PendudukSeeder::class
+            PendudukSeeder::class,
+            InformasiSeeder::class
         ]);
     }
 }

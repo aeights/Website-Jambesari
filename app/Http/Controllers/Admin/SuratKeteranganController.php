@@ -46,7 +46,7 @@ class SuratKeteranganController extends Controller
     {
         try {
             $validated = $request->validate([
-                "penduduk_nik" => "required|numeric|min:16|exists:penduduk,nik",
+                "penduduk_nik" => "required|numeric|exists:penduduk,nik",
                 "kode_kategori" => "required",
                 "nomor_urut" => "required|unique:surat,nomor_urut",
                 "kode_surat_keluar" => "required",
