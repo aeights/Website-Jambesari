@@ -17,7 +17,7 @@ class HomeController extends Controller
         return view('landing.profil');
     }
 
-    public function informasi()
+    public function information()
     {
         return view('landing.informasi');
     }
