@@ -47,7 +47,7 @@
                     </div>
                     <div class="modal-body">
                         <div class="row">
-                            <h5>Apakah anda yakin akan menghapus dusun ini?</h5>
+                            <h5>Apakah anda yakin akan informasi ini?</h5>
                         </div>
                     </div>
                     <div class="modal-footer">

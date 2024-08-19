@@ -149,14 +149,13 @@ Route::middleware('auth')->group(function () {
         });
     });
 
-});
-
-// hubungi
-Route::controller(HubungiController::class)->group(function () {
-    Route::prefix('hubungi')->group(function () {
-        Route::get('/','index')->name('hubungi');
-        Route::post('/add','store')->name('hubungi.store');
-        Route::post('/delete','delete')->name('hubungi.delete');
-        Route::post('/detail','detail')->name('hubungi.detail');
+    // Hubungi
+    Route::controller(HubungiController::class)->group(function () {
+        Route::prefix('hubungi')->group(function () {
+            Route::get('/','index')->name('hubungi');
+            Route::post('/add','store')->name('hubungi.store')->withoutMiddleware(['auth']);
+            Route::post('/delete','delete')->name('hubungi.delete');
+            Route::post('/detail','detail')->name('hubungi.detail');
+        });
     });
 });

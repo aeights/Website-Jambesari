@@ -12,7 +12,7 @@
                 <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.3s">
                     <h6 class="section-title bg-white text-start text-primary pe-3">{{ \Carbon\Carbon::parse($data->created_at)->locale('id')->translatedFormat('d F Y') }}</h6>
                     <h1 class="mb-4">{{ $data->judul }}</h1>
-                    <p class="mb-4">{{ $data->isi }}</p>
+                    <p class="mb-4">{!! $data->isi !!}</p>
                 </div>
             </div>
         </div>

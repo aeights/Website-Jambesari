@@ -50,6 +50,62 @@
     <!-- Content -->
 
     <div class="container-xxl">
+        @if (Session::has('success'))
+        <div class="bs-toast toast fade show bg-primary mb-3 position-absolute top-0 mt-3"
+            role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-header">
+                <i class="bx bx-bell me-2"></i>
+                <div class="me-auto fw-semibold">Notifikasi</div>
+                <small>Baru</small>
+                <button type="button" class="btn-close" data-bs-dismiss="toast"
+                    aria-label="Close"></button>
+            </div>
+            <div class="toast-body">
+                {{-- {{ session('success') }} --}}
+                @if (is_array(session('success')))
+                    <ul>
+                        @foreach (session('success') as $field => $messages)
+                            @foreach ($messages as $message)
+                            <li>
+                                {{ $message }}
+                            </li>
+                            @endforeach
+                        @endforeach
+                    </ul>
+                @else
+                    {{ session('success') }}
+                @endif
+            </div>
+        </div>
+    @endif
+    @if (Session::has('error'))
+        <div class="bs-toast toast fade show bg-danger mb-3 position-absolute top-0 mt-3"
+            role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-header">
+                <i class="bx bx-bell me-2"></i>
+                <div class="me-auto fw-semibold">Notifikasi</div>
+                <small>Baru</small>
+                <button type="button" class="btn-close" data-bs-dismiss="toast"
+                    aria-label="Close"></button>
+            </div>
+            <div class="toast-body">
+                {{-- {{ session('error') }} --}}
+                @if (is_array(session('error')))
+                    <ul>
+                        @foreach (session('error') as $field => $messages)
+                            @foreach ($messages as $message)
+                            <li>
+                                {{ $message }}
+                            </li>
+                            @endforeach
+                        @endforeach
+                    </ul>
+                @else
+                    {{ session('error') }}
+                @endif
+            </div>
+        </div>
+    @endif
         <div class="authentication-wrapper authentication-basic container-p-y">
             <div class="authentication-inner">
                 @yield('content')

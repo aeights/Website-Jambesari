@@ -15,7 +15,7 @@
 <body style="background-color: transparent">
     <div id="suratKeterangan" class="" style="font-family: Times New Roman, sans-serif;width: 21cm; color: black">
         <div id="kopSurat">
-            <div class="d-flex flex-row justify-content-center align-items-center gap-5">
+            <div class="d-flex flex-row justify-content-center align-items-center gap-5 pt-1">
                 <img src="{{ asset('assets/logo-bondowoso.png') }}"
                     alt="logo-bondowoso"
                     style="width: 1in">
