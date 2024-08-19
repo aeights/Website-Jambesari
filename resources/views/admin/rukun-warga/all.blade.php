@@ -11,7 +11,7 @@
                     <tr>
                         <th class="text-start">No</th>
                         <th class="text-start">Nomor RW</th>
-                        <th class="text-start">Ketua RW</th>
+                        <th class="text-start">NIK Ketua RW</th>
                         <th class="text-start">Opsi</th>
                     </tr>
                 </thead>

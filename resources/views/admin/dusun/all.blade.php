@@ -11,7 +11,7 @@
                         <tr>
                             <th class="text-start">No</th>
                             <th class="text-start">Nama</th>
-                            <th class="text-start">Kepala Dusun</th>
+                            <th class="text-start">NIK Kepala Dusun</th>
                             <th class="text-start">Opsi</th>
                         </tr>
                     </thead>

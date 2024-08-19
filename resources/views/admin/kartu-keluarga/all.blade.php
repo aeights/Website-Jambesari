@@ -11,7 +11,7 @@
                     <tr>
                         <th class="text-start">No</th>
                         <th class="text-start">No. Kartu Keluarga</th>
-                        <th class="text-start">No. Kepala Keluarga</th>
+                        <th class="text-start">NIK Kepala Keluarga</th>
                         <th class="text-start">Opsi</th>
                     </tr>
                 </thead>

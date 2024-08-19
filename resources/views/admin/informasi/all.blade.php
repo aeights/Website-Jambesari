@@ -42,12 +42,12 @@
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="modalCenterTitle">Hapus Dusun</h5>
+                        <h5 class="modal-title" id="modalCenterTitle">Hapus Informasi</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
                         <div class="row">
-                            <h5>Apakah anda yakin akan informasi ini?</h5>
+                            <h5>Apakah anda yakin akan menghapus informasi ini?</h5>
                         </div>
                     </div>
                     <div class="modal-footer">
