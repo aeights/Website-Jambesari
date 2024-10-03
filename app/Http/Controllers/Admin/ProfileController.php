@@ -54,7 +54,7 @@ class ProfileController extends Controller
             $validated = $request->validate([
                 'nama' => 'required|min:3',
                 'email' => 'required|email|unique:users,email,'.$request->id,
-                'telepon' => 'required|unique:users,telepon,'.$request->id,
+                'telepon' => 'required|numeric|unique:users,telepon,'.$request->id,
                 'jabatan_id' => 'required',
             ]);
             if ($validated) {

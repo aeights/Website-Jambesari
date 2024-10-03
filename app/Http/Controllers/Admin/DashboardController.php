@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Dusun;
+use App\Models\Informasi;
 use App\Models\KartuKeluarga;
 use App\Models\Penduduk;
 use App\Models\RukunTetangga;
@@ -22,13 +23,15 @@ class DashboardController extends Controller
         $rw = RukunWarga::count();
         $dusun = Dusun::count();
         $surat = Surat::count();
+        $informasi = Informasi::count();
         return view('admin.dashboard',[
             'penduduk' => $penduduk,
             'keluarga' => $keluarga,
             'rt' => $rt,
             'rw' => $rw,
             'dusun' => $dusun,
-            'surat' => $surat
+            'surat' => $surat,
+            'informasi' => $informasi,
         ]);
     }
 }

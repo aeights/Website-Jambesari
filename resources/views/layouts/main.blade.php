@@ -32,6 +32,42 @@
 </head>
 
 <body>
+    @if (Session::has('success'))
+    <div class="alert alert-primary alert-dismissible fade show position-absolute" style="top: 15%;right:0" role="alert">
+        @if (is_array(session('success')))
+            <ul>
+                @foreach (session('success') as $field => $messages)
+                    @foreach ($messages as $message)
+                    <li>
+                        {{ $message }}
+                    </li>
+                    @endforeach
+                @endforeach
+            </ul>
+        @else
+            {{ session('success') }}
+        @endif
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+@endif
+@if (Session::has('error'))
+<div class="alert alert-warning alert-dismissible fade show position-absolute" style="top: 15%;right:0" role="alert">
+    @if (is_array(session('error')))
+        <ul>
+            @foreach (session('error') as $field => $messages)
+                @foreach ($messages as $message)
+                <li>
+                    {{ $message }}
+                </li>
+                @endforeach
+            @endforeach
+        </ul>
+    @else
+        {{ session('error') }}
+    @endif
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+@endif
     <!-- Spinner Start -->
     <div id="spinner"
         class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">

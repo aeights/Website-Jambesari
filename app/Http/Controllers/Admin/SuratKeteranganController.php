@@ -5,11 +5,12 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Surat;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Validation\ValidationException;
+use Spatie\Browsershot\Browsershot;
 use Spatie\LaravelPdf\Enums\Unit;
 use Spatie\LaravelPdf\Facades\Pdf;
-use function Spatie\LaravelPdf\Support\pdf;
 
 class SuratKeteranganController extends Controller
 {
@@ -101,13 +102,13 @@ class SuratKeteranganController extends Controller
     {
         return view('admin.surat-keterangan.pdf');
     }
-    
+
     public function generateSurat(Request $request)
     {
         try {
             $data = DB::select("SELECT
                         surat.id,
-                        CONCAT(surat.kode_kategori,'/',surat.nomor_urut,'/',surat.kode_surat_keluar,'/2024') AS nomor_surat,
+                        CONCAT(surat.kode_kategori,'/',surat.nomor_urut,'/',surat.kode_surat_keluar,'/',YEAR(NOW())) AS nomor_surat,
                         surat.penduduk_nik AS nik,
                         surat.keterangan,
                         penduduk.nama,
@@ -128,7 +129,8 @@ class SuratKeteranganController extends Controller
                         WHEN 10 THEN 'Oktober'
                         WHEN 11 THEN 'November'
                         WHEN 12 THEN 'Desember'
-                    END, DATE_FORMAT(surat.tanggal, ' %Y')) AS tanggal
+                    END, DATE_FORMAT(surat.tanggal, ' %Y')) AS tanggal,
+                    DATE_FORMAT(surat.tanggal, '%Y') AS tahun
                     FROM
                         surat
                     LEFT JOIN
@@ -160,17 +162,20 @@ class SuratKeteranganController extends Controller
                         rukun_warga.id,
                         surat.tanggal",[$request->query('nik')]);
             if ($data) {
-                $file = $data[0]->nama.'-'.$data[0]->id.'.pdf';
+                $file = $data[0]->nama.'-'.$data[0]->id.'-'.$data[0]->tahun.'.pdf';
                 $path = public_path('surat/'.$file);
                 if (file_exists($path)) {
                     return to_route('surat-keterangan.show',['name' => $file])->with('success','Surat berhasil di cetak!');
                 }
                 $collection = collect($data[0]);
                 $result = $collection->toArray();
-                $name = $result['nama'].'-'.$result['id'].'.pdf';
+                $name = $result['nama'].'-'.$result['id'].'-'.$result['tahun'].'.pdf';
                 Pdf::view('admin.surat-keterangan.pdf',$result)
                     ->paperSize(21,33,'cm')
                     ->margins(1,1,1,1,Unit::Inch)
+                    ->withBrowsershot(function (Browsershot $browsershot) {
+                        $browsershot->noSandbox();
+                    })
                     ->save('surat/'.$name);
                 return to_route('surat-keterangan.show',['name' => $name])->with('success','Surat berhasil di cetak!');
             }

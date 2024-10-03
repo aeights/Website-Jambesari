@@ -23,7 +23,7 @@ class UserSeeder extends Seeder
             ],
             [
                 'nama' => 'Pemdes Jambesari',
-                'email' => 'pemdesjambesari@mail.com',
+                'email' => 'pemdesjambesari@gmail.com',
                 'password' => 'jambesari99',
                 'telepon' => '082',
                 'jabatan_id' => 1
