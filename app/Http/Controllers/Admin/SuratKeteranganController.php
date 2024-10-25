@@ -170,14 +170,15 @@ class SuratKeteranganController extends Controller
                 $collection = collect($data[0]);
                 $result = $collection->toArray();
                 $name = $result['nama'].'-'.$result['id'].'-'.$result['tahun'].'.pdf';
-                Pdf::view('admin.surat-keterangan.pdf',$result)
-                    ->paperSize(21,33,'cm')
-                    ->margins(1,1,1,1,Unit::Inch)
-                    ->withBrowsershot(function (Browsershot $browsershot) {
-                        $browsershot->noSandbox();
-                    })
-                    ->save('surat/'.$name);
-                return to_route('surat-keterangan.show',['name' => $name])->with('success','Surat berhasil di cetak!');
+                return view('admin.surat-keterangan.pdf',['result' => $result]);
+                // Pdf::view('admin.surat-keterangan.pdf',$result)
+                //     ->paperSize(21,33,'cm')
+                //     ->margins(1,1,1,1,Unit::Inch)
+                //     ->withBrowsershot(function (Browsershot $browsershot) {
+                //         $browsershot->noSandbox();
+                //     })
+                //     ->save('surat/'.$name);
+                // return to_route('surat-keterangan.show',['name' => $name])->with('success','Surat berhasil di cetak!');
             }
             return back();
         } catch (\Exception $ex) {

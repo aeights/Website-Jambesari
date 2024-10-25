@@ -26,7 +26,7 @@
                         <td class="text-start">{{ $item->nama }}</td>
                         <td class="text-start">{{ $item->tanggal }}</td>
                         <td class="text-start">
-                            <a href="{{ route('surat-keterangan.generate',['id' => $item->id,'nik' => $item->nik]) }}" class="btn btn-success">Cetak</a>
+                            <a href="{{ route('surat-keterangan.generate',['id' => $item->id,'nik' => $item->nik]) }}" target="_blank" class="btn btn-success">Cetak</a>
                             <button id="buttonDeleteSurat" data-id="{{ $item->id }}" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalDeleteSurat">Hapus</button>
                         </td>
                     </tr>
